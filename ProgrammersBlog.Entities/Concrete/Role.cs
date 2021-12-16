@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ProgrammersBlog.Entities.Concrete
 {
-    public class Category : EntityBase, IEntity
+    public class Role : EntityBase,IEntity
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public ICollection<Article> Articles { get; set; } //Navigation property
+        public ICollection<User> Users { get; set; } //Navigation property
     }
 }
