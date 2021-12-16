@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgrammerBlog.Data.Concrete
+namespace ProgrammerBlog.Data.Concrete.EntityFramework.Repositories
 {
-    public class RoleRepositoy : EfEntityRepositoryBase<Role>, IRoleRepository
+    public class EfUserRepository : EfEntityRepositoryBase<User>, IUserRepository
     {
-        public RoleRepositoy(DbContext context) : base(context)
+        public EfUserRepository(DbContext context) : base(context)
         {
         }
     }

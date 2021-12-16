@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProgrammerBlog.Data.Abstract;
 using ProgrammersBlog.Entities.Concrete;
+using ProgrammersBlog.Shared.Data.Abstract;
 using ProgrammersBlog.Shared.Data.Concrete.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgrammerBlog.Data.Concrete
+namespace ProgrammerBlog.Data.Concrete.EntityFramework.Repositories
 {
-    public class UserRepository : EfEntityRepositoryBase<User>, IUserRepository
+    public class EfCommentRepository : EfEntityRepositoryBase<Comment>, ICommentRepository
     {
-        public UserRepository(DbContext context) : base(context)
+       
+
+        public EfCommentRepository(DbContext context) : base(context)
         {
         }
     }

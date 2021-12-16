@@ -9,12 +9,12 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgrammerBlog.Data.Concrete
+namespace ProgrammerBlog.Data.Concrete.EntityFramework.Repositories
 {
-    public class ArticleRepository : EfEntityRepositoryBase<Article>, IArticleRepository
+    public class EfArticleRepository : EfEntityRepositoryBase<Article>, IArticleRepository
     {
-
-        public ArticleRepository(DbContext context) : base(context) //Constructor DbContext verdik.
+        
+        public EfArticleRepository(DbContext context) : base(context) //Constructor DbContext verdik.
         {
 
         }
