@@ -29,6 +29,20 @@ namespace ProgrammerBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(r => r.IsDeleted).IsRequired();
             builder.Property(r => r.Note).HasMaxLength(500);
             builder.ToTable("Roles");
+            builder.HasData(new Role //builder.hasData diyerek böyle bir veri var mı diye sormuş oluyoruz. ve parantez açarak yeni veriler ekleyebiliyoruz. Role sınıfına ait bütün propertileri doldurmamız gerekmektedir. Id alanı identity olmasına karşın ona da bir atama gerçekleştirmemiz gerekmektedir.
+            {
+                Id = 1,
+                Name = "Admin",
+                Description = "Admin Rolü, Tüm Haklara Sahiptir.",
+                IsActive = true,
+                IsDeleted = false,
+                CreatedByName = "InitialCreate",
+                CreatedDate = DateTime.Now,
+                ModifiedByName = "InitialCreate",
+                ModifiedDate = DateTime.Now,
+                Note = "Admin Rolüdür."           //İlk Rolümüzü oluşturmuş olduk. Yani veritabanımız oluşurken (16-32.satır) veriler işlenecek(Rol tablomuz oluşmuş olacak). Ardından Rol tablomuza bir adet veri eklenecek(34-44.satırlar)
+            });
+
         }
     }
 }
