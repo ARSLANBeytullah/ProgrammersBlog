@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProgrammerBlog.Data.Concrete.EntityFramework.Mappings;
 using ProgrammersBlog.Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,17 @@ namespace ProgrammerBlog.Data.Concrete.EntityFramework.Contexts
         public DbSet<User> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer ("Server=DESKTOP-KBVDE09\\SQLEXPRESS;Database=ProgrammersBlog;Trusted_Connection=True;" +
+            optionsBuilder.UseSqlServer (@"Server=DESKTOP-KBVDE09\\SQLEXPRESS;Database=ProgrammersBlog;Trusted_Connection=True;" +
                 "Connect Timeout=30;MultipleActiveResultSets=True;");
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder) //Veritabanımız oluşturulurken buradaki configurationa dosyaları uygulanıyor olacak.
+        {
+            modelBuilder.ApplyConfiguration(new ArticleMap());
+            modelBuilder.ApplyConfiguration(new CategoryMap());
+            modelBuilder.ApplyConfiguration(new CommentMap());
+            modelBuilder.ApplyConfiguration(new RoleMap());
+            modelBuilder.ApplyConfiguration(new UserMap());
+
         }
     }
 }
